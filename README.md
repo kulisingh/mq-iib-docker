@@ -38,7 +38,7 @@ The last important point of configuration when running a container from this ima
 For example:
 
 ~~~
-docker run --name myNode -e LICENSE=accept -e NODENAME=MYNODE1 -e MQ_QMGR_NAME=QM1 -P iibv10image
+docker run --name myNode -e LICENSE=accept -e NODENAME=MYNODE1 -e MQ_QMGR_NAME=QM1 -P mq-iibv10-image
 ~~~
 
 You can use the script:
