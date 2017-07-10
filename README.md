@@ -47,7 +47,7 @@ run-mq-iib.cmd
 
 to easily run the container.
 
-This will run a container that creates and starts an Integration Node called `MYNODE1` on Queue Manager QM1 and exposes ports `4414` and `7800` on random ports on the host machine.
+This will run a container that creates and starts an Integration Node called `MYNODE1` on Queue Manager `QM1` and exposes ports `4414` and `7800` on random ports on the host machine.
 
 MQ ports `1414` for the Queue Manager and `9443` are randomly mapped, but can be overriden in the dockerfile or using docker run (or by altering the run-mq-iib.cmd script).
 
