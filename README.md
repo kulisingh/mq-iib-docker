@@ -10,14 +10,14 @@ The image can be built using standard [Docker commands](https://docs.docker.com/
 
 ~~~
 cd 10.0.0.8
-docker build -t iibv10image .
+docker build -t mq-iibv10-image .
 ~~~
 
 This will create an image called `iibv10image` occupying approximately 1.15GB of space (including the size of the underlying Ubuntu base image) in your local Docker registry:
 
 ~~~
 REPOSITORY     TAG       IMAGE ID        CREATED          SIZE
-iibv10image    latest    b8403ecfcd0d    2 seconds ago    1.15GB
+mq-iibv10-image    latest    b8403ecfcd0d    2 seconds ago    1.15GB
 ubuntu         14.04     132b7427a3b4    3 weeks ago      188MB
 ~~~
 
@@ -38,10 +38,25 @@ The last important point of configuration when running a container from this ima
 For example:
 
 ~~~
-docker run --name myNode -e LICENSE=accept -e NODENAME=MYNODE -P iibv10image
+docker run --name myNode -e LICENSE=accept -e NODENAME=MYNODE1 -e MQ_QMGR_NAME=QM1 -P iibv10image
 ~~~
 
-This will run a container that creates and starts an Integration Node called `MYNODE` and exposes ports `4414` and `7800` on random ports on the host machine.  At this point you can use:
+You can use the script:
+
+run-mq-iib.cmd
+
+to easily run the container.
+
+This will run a container that creates and starts an Integration Node called `MYNODE1` on Queue Manager QM1 and exposes ports `4414` and `7800` on random ports on the host machine.
+
+MQ ports `1414` for the Queue Manager and `9443` are randomly mapped, but can be overriden in the dockerfile or using docker run (or by altering the run-mq-iib.cmd script).
+
+https://localhost:9443/ibmmq/console/
+
+http://localhost:4414
+
+
+At this point you can use:
 ~~~
 docker port <container name>
 ~~~
