@@ -23,7 +23,7 @@ ubuntu         14.04     132b7427a3b4    3 weeks ago      188MB
 
 # What the image contains
 
-The built image contains a full installation of [IBM Integration Bus for Developers Edition V10.0](https://ibm.biz/iibdevedn).  It does not contain an installation of IBM MQ so some functionality may not be available, or may be changed - see this [topic](http://www-01.ibm.com/support/knowledgecenter/SSMKHH_10.0.0/com.ibm.etools.mft.doc/bb28660_.htm) for more information
+The built image contains a full installation of [IBM Integration Bus for Developers Edition V10.0](https://ibm.biz/iibdevedn), as well as Websphere MQ 9.0.3.
 
 # Running a container
 
