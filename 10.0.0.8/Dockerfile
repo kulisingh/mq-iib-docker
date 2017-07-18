@@ -53,7 +53,7 @@ RUN echo "IIB_10:" > /etc/debian_chroot  && \
 
 
 # Create user to run as
-RUN useradd --create-home --home-dir /home/iibuser -G mqbrkrs,sudo iibuser && \
+RUN useradd --create-home --home-dir /home/iibuser -G mqbrkrs,mqm,sudo iibuser && \
     sed -e 's/^%sudo	.*/%sudo	ALL=NOPASSWD:ALL/g' -i /etc/sudoers
     
 # Increase security
@@ -68,8 +68,7 @@ COPY iib-license-check.sh /usr/local/bin/
 COPY iib_env.sh /usr/local/bin/
 RUN chmod +rx /usr/local/bin/*.sh
 
-# Add setmaut line into mq.sh to give iibuser mq authorization
-RUN echo setmqaut -m QM1 -t qmgr -g iibuser -t qmgr -g iibuser +connect +dsp +inq +setall  >> /usr/local/bin/qm.sh 
+
 
 # Set BASH_ENV to source mqsiprofile when using docker exec bash -c
 ENV BASH_ENV=/usr/local/bin/iib_env.sh
